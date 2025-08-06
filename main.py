@@ -1,4 +1,6 @@
 import numpy as np
 import matplotlib as plt
-#test for fork
-#test again
+
+def Class ():
+  def __init__(self):
+    self.x = 5
