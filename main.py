@@ -39,13 +39,10 @@ class Ecoli:
     self.x = np.random.uniform()  #randomize initial position
     self.Ecolipath = [self.x]     #store positions in list, starting w/ initial position
     
-  def walking(self):
+  def tumble(self):
     step = np.random.normal()       #randomize steps
     self.x += step                  #update current position
     self.Ecolipath.append(np.array([self.x, self.y], float))  #changed to 2D
-
-  def tumble():
-    pass
 
   def run():
     pass
