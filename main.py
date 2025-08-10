@@ -18,6 +18,13 @@ def conc_exponential(x, y, alpha=0.5):
 def conc_linear(x, y, k = 0.2):
   return k * x
 
+#not sure if this is the best practice but I am creating a constant
+#i.e right now, food_source is selected --> gaussian/normal distribution
+FIELD = food_source
+
+#helper function to apply FIELD
+def field_function(profile):
+    return np.vectorize(lambda x, y: profile(x, y))
 
 #define E.coli class
 class Ecoli:
@@ -36,4 +43,7 @@ class Ecoli:
     step = np.random.normal()       #randomize steps
     self.x += step                  #update current position
     self.Ecolipath.append(self.x)   #save new x to positions list
+
+
+
     
