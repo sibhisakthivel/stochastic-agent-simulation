@@ -42,7 +42,7 @@ class Ecoli:
   def walking(self):
     step = np.random.normal()       #randomize steps
     self.x += step                  #update current position
-    self.Ecolipath.append(self.x)   #save new x to positions list
+    self.Ecolipath.append(np.array([self.x, self.y], float))  #changed to 2D
 
   def tumble():
     pass
@@ -58,6 +58,10 @@ class Ecoli:
 
   def plot_histograms(dist_by_time):
     pass
+
+  #run whole
+  if __name__ == "__main__":
+    field = field_function(FIELD) #calling helper function depending on profile
 
 
 
