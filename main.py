@@ -11,7 +11,7 @@ def food_source(x, y, x0 = 0, y0 = 0, sigma = 3):
 
 #create concentration field gradient, 3 profiles total
 #picked numbers
-def conc_exponential(x, y, alpha=0.5):
+def conc_gaussian(x, y, alpha=0.5):
   r = np.sqrt(x*x + y*y)
   return np.exp(-alpha * r)
 
@@ -22,7 +22,7 @@ def conc_linear(x, y, k = 0.2):
 #i.e right now, food_source is selected --> gaussian/normal distribution
 FIELD = food_source
 
-#helper function to apply FIELD
+#helper function to apply FIELD, can put this in main too
 def field_function(profile):
     return np.vectorize(lambda x, y: profile(x, y))
 
@@ -43,6 +43,22 @@ class Ecoli:
     step = np.random.normal()       #randomize steps
     self.x += step                  #update current position
     self.Ecolipath.append(self.x)   #save new x to positions list
+
+  def tumble():
+    pass
+
+  def run():
+    pass
+
+  def cycle():
+    pass
+
+  def plot_traj(field, cell, L = 15):
+    pass
+
+  def plot_histograms(dist_by_time):
+    pass
+
 
 
 
