@@ -11,7 +11,7 @@ def food_source(x, y, x0 = 0, y0 = 0, sigma = 3):
 
 #create concentration field gradient, 3 profiles total
 #picked numbers
-def conc_gaussian(x, y, alpha=0.5):
+def conc_exponential(x, y, alpha=0.5):
   r = np.sqrt(x*x + y*y)
   return np.exp(-alpha * r)
 
@@ -36,13 +36,20 @@ class Ecoli:
     
 
   def __init__(self):
-    self.x = np.random.uniform()  #randomize initial position
-    self.Ecolipath = [self.x]     #store positions in list, starting w/ initial position
+    self.x = np.random.uniform(-10, 10)  #randomize initial position
+    self.y = np.random.uniform(-10, 10)
+    self.time_step = 0
+    self.Ecolipath.append(np.array([self.x, self.y], float))    #store positions in list, starting w/ initial position
     
   def tumble(self):
-    step = np.random.normal()       #randomize steps
-    self.x += step                  #update current position
-    self.Ecolipath.append(np.array([self.x, self.y], float))  #changed to 2D
+    for i in range(4):
+      self.time_step += 1
+      if self.time_step % 4 == 0:
+        step_x = np.random.normal(-1.0, 1.0)
+        step_y = np.random.normal(-1.0, 1.0)       #randomize steps
+        self.x += step_x   
+        self.y += step_x              #update current position
+        self.Ecolipath.append(np.array([self.x, self.y], float))  #changed to 2D
 
   def run():
     pass
